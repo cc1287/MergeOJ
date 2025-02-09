@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>题目详情</title>
+    <link href="/layui/css/layui.css" rel="stylesheet">
+    <script src="/layui/layui.js"></script>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <style>
+        @font-face {
+            font-family: CustomFont;
+            src: url("/layui/font/JetBrainsMono-Regular.ttf");
+        }
+
+        * {
+            font-family: CustomFont;
+            unicode-range: U+0020-U+007E;
+            /* ASCII characters and common punctuation */
+        }
+
+        .OJ-card {
+            background-color: rgb(230, 230, 230);
+            border-radius: 5px;
+        }
+
+        .lg-task {
+            height: 127.7px;
+        }
+
+        .lg-color {
+            background-color: rgb(145, 145, 145);
+        }
+
+        .lg-color-2 {
+            background-color: rgb(250, 219, 20)
+        }
+
+        .lg-color-4 {
+            background: rgb(5, 34, 66);
+        }
+
+        .lg-color-5 {
+            background: rgb(5, 34, 66);
+        }
+
+        .lg-color-6 {
+            background-color: rgb(231, 76, 60);
+        }
+
+        .lg-color-7 {
+            background: rgb(157, 61, 207);
+        }
+
+        .lg-color-11 {
+            background-color: rgb(14, 29, 105);
+        }
+
+        .lg-color-12 {
+            background-color: rgb(82, 196, 26);
+        }
+
+        .wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .test-case {
+            position: relative;
+            vertical-align: top;
+            cursor: pointer;
+            margin: 0.2em;
+            height: 6em;
+            width: 6em;
+            padding: 0;
+            color: #fff;
+        }
+
+        .content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .content>div {
+            padding-top: 2px;
+            padding-bottom: 2px;
+        }
+
+        .info {
+            font-size: .7em;
+            text-align: center;
+        }
+
+        .info+.status {
+            font-size: 1.25em;
+        }
+
+        .status {
+            font-size: 1.5em;
+            text-align: center;
+            font-weight: normal;
+        }
+
+        .id {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 6px;
+            font-size: .65em;
+        }
+
+        .message {
+            display: block;
+            position: absolute;
+            background-color: #333333;
+            color: #fafafa;
+            border-radius: 3px;
+            font-size: .75em;
+            z-index: 10;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: .5em;
+            margin: 6px;
+            min-width: 12em;
+            max-width: 16em;
+            white-space: pre-line;
+            top: -7em;
+            transition: .6s ease all;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .lg-h3 {
+            font-size: 1.125em;
+            font-weight: bold;
+        }
+
+        .lg-h5 {
+            font-size: 0.875em;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="padding-left: 16px; padding-right: 16px;">
+        <div class="layui-tab layui-tab-brief">
+            <ul class="layui-tab-title">
+                <li class="layui-this">测试点信息</li>
+                <li>源代码</li>
+            </ul>
+            <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show" id="subtasks">
+
+                </div>
+                <div class="layui-tab-item">
+                    <pre class="layui-code" id="code_pre" lay-options="{}">{{pre}}</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        layui.use(function () {
+            layui.code({
+                elem: '#code_pre',
+                tools: [
+                    'copy',
+                ]
+            });
+        })
+        var subtasks_ = '{{subtasks}}'.replaceAll('&#39;', '"').replaceAll('\\', '\\\\')
+            .replace(/[\r|\n|\t]/g, "");
+        var subtasks = JSON.parse(subtasks_);
+        console.log(subtasks);
+        var typ = {
+            4: 'MLE',
+            5: 'TLE',
+            6: 'WA',
+            7: 'RE',
+            11: 'UKE',
+            12: 'AC',
+        }
+        if (subtasks.length == 0) {
+            let h = document.createElement('h3');
+            h.className = 'lg-h3';
+            h.textContent = '编译失败';
+            document.getElementById('subtasks').appendChild(h);
+            let pre = document.createElement('pre');
+            pre.className = 'layui-code';
+            pre.style.marginTop = '6px';
+            pre.id = 'compile-error';
+            pre.textContent = '{{message}}'.replaceAll('\\n', '\n');
+            document.getElementById('subtasks').appendChild(pre);
+            layui.use(function () {
+                layui.code({
+                    elem: '#compile-error'
+                });
+            })
+        } else {
+            function Undefined(data) {
+                console.warn(data)
+                return "None"
+            }
+            function tasks(data) {
+                let fra = document.createDocumentFragment();
+                let h = document.createElement('h5');
+                h.className = 'lg-h5';
+                h.textContent = 'Subtask #' + data.id;
+                fra.appendChild(h);
+                for (let [key, value] of Object.entries(data['testCases'])) {
+                    let m = `<div class="test-case lg-color lg-color-${value.status}">
+                                <div class="content">
+                                    <div class="info">
+                                        ${value.time + 'ms'}/${value.memory >= 1024 ? (value.memory / 1024.0).toFixed(2) + 'MB' : value.memory + 'KB'}
+                                    </div>
+                                    <div class="status">${typ[value.status] == undefined ? Undefined(value) : typ[value.status]}</div>
+                                </div>
+                                <div class="id">#${value.id}</div>
+                            </div>
+                            <div class="message">${value.description}</div>`;
+                    let task = document.createElement('div');
+                    task.className = 'wrapper';
+                    task.innerHTML = m;
+                    fra.appendChild(task);
+                }
+                document.getElementById('subtasks').appendChild(fra);
+            }
+            try {
+                subtasks.forEach(tasks);
+            } catch {
+                for (let [key, value] of Object.entries(subtasks)) {
+                    tasks(value);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

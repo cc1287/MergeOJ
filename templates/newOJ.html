@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>newOJ</title>
+    <link href="/layui/css/layui.css" rel="stylesheet">
+    <script src="/layui/layui.js"></script>
+</head>
+
+<body>
+    <form class="layui-form" action="/newOJ" method="post" id="newOJ">
+        <!-- <div class="layui-form-item">
+            <label class="layui-form-label"></label>
+            <div class="layui-input-block">
+                
+            </div>
+        </div> -->
+        <div class="layui-form-item">
+            <label class="layui-form-label">请选择OJ</label>
+            <div class="layui-input-block">
+                <select name="oj_type" lay-filter="oj_type" lay-verify="required">
+                    <option value=""></option>
+                    <option value="luogu">luogu</option>
+                    <option value="QOJ">QOJ</option>
+                    <option value="mxoj" disabled>梦熊oj</option>
+                    <!-- <option value="2">游戏</option>
+                    <option value="3">音乐</option>
+                    <option value="4">旅行</option> -->
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">用户id</label>
+            <div class="layui-input-block">
+                <input type="number" name="uid" placeholder="" autocomplete="off" class="layui-input" min="0" step="1"
+                    lay-affix="number" lay-verify="required">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">Cookie</label>
+            <div class="layui-input-block">
+                <textarea placeholder="请输入Cookie" class="layui-textarea" name="cookie"></textarea>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button type="submit" class="layui-btn" lay-submit lay-filter="addOJ">提交</button>
+            </div>
+        </div>
+    </form>
+    <script>
+        layui.use(['form', 'laydate', 'util'], function () {
+            var form = layui.form;
+            var layer = layui.layer;
+            var laydate = layui.laydate;
+            var util = layui.util;
+
+            form.on('submit(addOJ)', function (data) {
+                var xhr = new XMLHttpRequest();
+                xhr.open('post', '/newOJ', true);
+                // xhr.setRequestHeader("Content-Type", "multipart/form-data");
+                xhr.onreadystatechange = function () {
+                    console.log(xhr);
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        ok(data.field.oj_type);
+                    }
+                };
+                let FD = new FormData(document.getElementById('newOJ'));
+                xhr.send(FD);
+                return false;
+            });
+        });
+        function ok(message) {
+            window.parent.postMessage(message, "*");
+            var index = parent.layer.getFrameIndex(window.name); // 先得到当前 iframe 层的索引
+            parent.layer.close(index);
+        }
+    </script>
+</body>
+
+</html>

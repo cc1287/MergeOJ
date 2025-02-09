@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>聚合OJ</title>
+    <link href="/layui/css/layui.css" rel="stylesheet">
+    <link rel="icon" href="favicon.ico">
+    <script src="/layui/layui.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @font-face {
+            font-family: CustomFont;
+            src: url("/layui/font/JetBrainsMono-Regular.ttf");
+        }
+
+        * {
+            font-family: CustomFont;
+            unicode-range: U+0020-U+007E;
+            /* ASCII characters and common punctuation */
+        }
+
+        .OJ-card {
+            background-color: rgb(230, 230, 230);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="layui-nav layui-bg-gray" style="z-index: 10;" id="nav">
+        <li class="layui-nav-item layui-this" id="homePage">
+            <a href="/index">首页</a>
+        </li>
+        <li class="layui-nav-item">
+            <a href="/record">评测信息</a>
+        </li>
+        <!-- <li class="layui-nav-item">
+            <a href="javascript:void(0);">功能</a>
+            <dl class="layui-nav-child">
+                <dd><a lay-on="get-start" id="addOJ">添加OJ</a></dd>
+            </dl>
+        </li> -->
+        <li class="layui-nav-item">
+            <a lay-on="get-start" id="addOJ">添加OJ</a>
+        </li>
+    </ul>
+    <!-- <button class="layui-btn ">hi</button> -->
+    <section class="layui-anim layui-anim-fadein bg-white dark:bg-gray-950" style="display: {{hide}};" id="show1">
+        <div class="mx-auto max-w-[52.5rem] px-6 py-32 lg:max-w-[78rem]">
+            <div class="bg-gray-50 dark:bg-gray-900 flex flex-col items-center px-6 py-20 gap-6 rounded-lg lg:px-20">
+                <div class="w-full max-w-[36.75rem] *:text-gray-950 dark:*:text-gray-50 *:text-center">
+                    <h3 class="text-2xl font-bold mb-3 xl:text-3xl">
+                        准备好添加一个新OJ了吗？
+                    </h3>
+                    <p class="text-base">
+                        Are you ready to add a new OJ?
+                    </p>
+                </div>
+                <div
+                    class="w-full max-w-[36.75rem] flex flex-col items-center justify-center gap-4 lg:max-w-fit lg:flex-row *:w-full *:rounded-lg *:px-5 *:py-3 *:text-base *:font-medium *:text-center *:transition *:duration-[250ms] *:ease-in-out lg:*:w-auto">
+                    <button lay-on="get-start" id="get-start" class="text-white layui-bg-blue">
+                        开始
+                    </button>
+                    <button id="hide_show1"
+                        class="bg-white dark:bg-gray-950 hover:bg-gray-50 dark:hover:bg-gray-900 ring-1 ring-gray-200 dark:ring-gray-800 text-gray-950 dark:text-gray-50">
+                        隐藏本消息
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div style="padding: 16px;">
+        <div class="layui-row layui-col-space15">
+            <div class="layui-col-md6" id="luogu">
+                <div class="OJ-card layui-card">
+                    <div class="layui-card-header">洛谷 - Luogu</div>
+                    <div class="layui-card-body">
+                        <div style="padding: 16px;">
+                            <!-- <iframe src="/record?oj=luogu&hide=true&height=100px"
+                                style="height: 100%; width: 100%;"></iframe> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md6" style="display: none;">
+                <div class="OJ-card layui-card">
+                    <div class="layui-card-header">梦熊OJ</div>
+                    <div class="layui-card-body">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function get(id) {
+            return document.getElementById(id);
+        }
+        if ('{{luogu}}' == 'False') {
+            get('luogu').style.display = 'none';
+        }
+        layui.use(function () {
+            var $ = layui.$;
+            var elem = $('#show1');
+            var animName = 'layui-anim-fadeout';
+
+            $('#hide_show1').on('click', function () {
+                elem.removeClass(animName);
+                setTimeout(function () {
+                    elem.addClass(animName);
+                    get('show1').addEventListener('transitionend', function () {
+                        this.remove();
+                    });
+                });
+            });
+        });
+        function add_OJ() {
+            get('hide_show1').click();
+        }
+        function add_OJ_done(e) {
+            var forceClose;
+            var loadIndex = layer.load(1, {
+                shade: 0.8,
+                success: function () {
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('GET', '/checkOJ?oj_type=' + e.data, true);
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState == 4 && xhr.status == 200) {
+                            if(xhr.responseText=='ok'){
+                                layer.close(loadIndex);
+                                clearTimeout(forceClose);
+                                layer.msg('验证成功', {icon: 1}, function(){
+                                    window.location.reload()
+                                });
+                            }else{
+                                layer.close(loadIndex);
+                                clearTimeout(forceClose);
+                                layer.msg('验证失败', {icon: 2});
+                            }
+                        }
+                    };
+                    xhr.send();
+                    forceClose = setTimeout(function () {
+                        layer.close(loadIndex);
+                        layer.msg('请求失败，请检查网络连接或刷新页面', { icon: 2 });
+                    }, 10000);
+                }
+            });
+            // setTimeout(function(){
+            //     layer.close(loadIndex);
+            // },2000);
+        }
+        layui.use(function () {
+            var layer = layui.layer;
+            var util = layui.util;
+            var form = layui.form;
+            var $ = layui.$;
+            // 事件
+            util.on('lay-on', {
+                'get-start': function () {
+                    let st = get('get-start');
+                    st.classList.add('layui-btn-disabled');
+                    st.disabled = true;
+                    let addOJ = get('addOJ');
+                    addOJ.style.pointerEvents = 'none';
+                    addOJ.parentElement.classList.add('layui-this');
+                    get('homePage').classList.add('layui-this');
+                    // iframe 层
+                    layer.open({
+                        type: 2,
+                        title: '添加OJ',
+                        shadeClose: false,
+                        shade: 0,
+                        maxmin: true,
+                        area: ['500px', '328px'],
+                        content: '/newOJ', // iframe 的 url
+                        success: function () {
+                            window.addEventListener('message', add_OJ_done)
+                        },
+                        end: function () {
+                            window.removeEventListener('message', add_OJ_done)
+                            addOJ.style.pointerEvents = 'auto';
+                            st.classList.remove('layui-btn-disabled');
+                            addOJ.parentElement.classList.remove('layui-this');
+                            st.disabled = false;
+                        }
+                    });
+                },
+                'window': function () {
+                    var that = this;
+                    // 多窗口模式 + 层叠置顶 + Esc 关闭
+                    layer.open({
+                        type: 1,
+                        title: '当你选择该窗体时，即会在最顶端',
+                        area: ['390px', '260px'],
+                        shade: 0,
+                        maxmin: true,
+                        content: '<div style="padding: 16px;">内容标记：' + new Date().getTime() + '，按 ESC 键可关闭。<br><br>当你的页面有很多很多 layer 窗口，你需要像 Window 窗体那样，点击某个窗口，该窗体就置顶在上面，那么 layer.setTop() 可以来轻松实现。它采用巧妙的逻辑，以使这种置顶的性能达到最优。</div>',
+                        btn: ['继续弹出', '全部关闭'], //只是为了演示
+                        yes: function () {
+                            $(that).click();
+                        },
+                        btn2: function () {
+                            layer.closeAll();
+                        },
+                        zIndex: layer.zIndex, // 重点 1 --- 初始设置当前最高层叠顺序，
+                        success: function (layero, index) {
+                            layer.setTop(layero); // 重点 2 --- 保持选中窗口置顶
+
+                            // 记录索引，以便按 esc 键关闭。事件见代码最末尾处。
+                            layer.escIndex = layer.escIndex || [];
+                            layer.escIndex.unshift(index);
+                            // 选中当前层时，将当前层索引放置在首位
+                            layero.on('mousedown', function () {
+                                var _index = layer.escIndex.indexOf(index);
+                                if (_index !== -1) {
+                                    layer.escIndex.splice(_index, 1); //删除原有索引
+                                }
+                                layer.escIndex.unshift(index); //将索引插入到数组首位
+                            });
+                        },
+                        end: function () {
+                            //更新索引
+                            if (typeof layer.escIndex === 'object') {
+                                layer.escIndex.splice(0, 1);
+                            }
+                        }
+                    });
+                }
+            });
+            // 多窗口模式 - esc 键
+            $(document).on('keyup', function (e) {
+                if (e.keyCode === 27) {
+                    layer.close(layer.escIndex ? layer.escIndex[0] : 0);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

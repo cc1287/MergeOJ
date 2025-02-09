@@ -1,0 +1,292 @@
+[2024-07-18 16:01:57] Unhandled exception occurred:
+Traceback (most recent call last):
+  File "d:\VS_code\聚合OJ\file.py", line 16, in <module>
+    File('s')
+  File "d:\VS_code\聚合OJ\file.py", line 6, in __init__
+    raise NameError("应在 ['json','plain'] 中，找到{}".format(fileType))
+NameError: 应在 ['json','plain'] 中，找到s
+[2024-07-18 16:02:20] Unhandled exception occurred:
+Traceback (most recent call last):
+  File "d:\VS_code\聚合OJ\file.py", line 16, in <module>
+    File('s')
+  File "d:\VS_code\聚合OJ\file.py", line 6, in __init__
+    raise NameError("fileType 值应在 ['json','plain'] 中，找到{}".format(fileType))
+NameError: fileType 值应在 ['json','plain'] 中，找到s
+[2024-07-18 16:25:12] Unhandled exception occurred:
+Traceback (most recent call last):
+  File "d:\VS_code\聚合OJ\config.py", line 15, in <module>
+    Config().draw()
+TypeError: __init__() missing 1 required positional argument: 'rootWindow'
+[2024-07-18 16:25:29] Unhandled exception occurred:
+Traceback (most recent call last):
+  File "d:\VS_code\聚合OJ\config.py", line 15, in <module>
+    Config(Tk()).draw()
+  File "d:\VS_code\聚合OJ\config.py", line 9, in __init__
+    self.draw(self.file.read('\\data\\global.config.json'))
+  File "d:\VS_code\聚合OJ\file.py", line 10, in read
+    with open((self.path if absPath else "")+path,'r') as f:
+FileNotFoundError: [Errno 2] No such file or directory: '\\data\\global.config.json'
+[2024-07-18 16:26:22] Unhandled exception occurred:
+Traceback (most recent call last):
+  File "d:\VS_code\聚合OJ\config.py", line 15, in <module>
+    Config(Tk()).draw()
+  File "d:\VS_code\聚合OJ\config.py", line 9, in __init__
+    self.draw(self.file.read('\\data\\global.config.json'))
+  File "d:\VS_code\聚合OJ\file.py", line 12, in read
+    return json.load(f)
+  File "D:\其他软件\python\lib\json\__init__.py", line 293, in load
+    return loads(fp.read(),
+UnicodeDecodeError: 'gbk' codec can't decode byte 0xa7 in position 12: illegal multibyte sequence
+[2024-07-18 16:27:07] Unhandled exception occurred:
+Traceback (most recent call last):
+  File "d:\VS_code\聚合OJ\config.py", line 15, in <module>
+    Config(Tk()).draw()
+TypeError: draw() missing 1 required positional argument: 'config'
+[2024-07-18 17:05:27] Unhandled exception occurred:
+Traceback (most recent call last):
+  File "d:\VS_code\聚合OJ\config.py", line 38, in <module>
+    Config(root)
+  File "d:\VS_code\聚合OJ\config.py", line 11, in __init__
+    self.draw(self.file.read('\\data\\global.config.json'))
+  File "d:\VS_code\聚合OJ\config.py", line 24, in draw
+    self.open_file(item[1])
+TypeError: open_file() takes 1 positional argument but 2 were given
+[2024-07-18 18:21:21] Unhandled exception occurred:
+Traceback (most recent call last):
+  File "d:\VS_code\聚合OJ\config.py", line 43, in <module>
+    Config(root)
+  File "d:\VS_code\聚合OJ\config.py", line 11, in __init__
+    self.draw(self.file.read('\\data\\global.config.json'))
+  File "d:\VS_code\聚合OJ\config.py", line 22, in draw
+    tmp=StringVar(value=item[1].keys()[-1])
+TypeError: 'dict_keys' object is not subscriptable
+[2024-07-18 18:22:04] Unhandled exception occurred:
+Traceback (most recent call last):
+  File "d:\VS_code\聚合OJ\config.py", line 43, in <module>
+    Config(root)
+  File "d:\VS_code\聚合OJ\config.py", line 11, in __init__
+    self.draw(self.file.read('\\data\\global.config.json'))
+  File "d:\VS_code\聚合OJ\config.py", line 22, in draw
+    tmp=StringVar(value=str(item[1].keys()[-1]))
+TypeError: 'dict_keys' object is not subscriptable
+[2024-07-18 18:34:20] Unhandled exception occurred:
+Traceback (most recent call last):
+  File "d:\VS_code\聚合OJ\config.py", line 48, in <module>
+    Config(root)
+  File "d:\VS_code\聚合OJ\config.py", line 11, in __init__
+    self.draw(self.file.read('\\data\\global.config.json'))
+  File "d:\VS_code\聚合OJ\config.py", line 19, in draw
+    Label(self.root,text=key[it]).grid(column=0,row=i)
+TypeError: 'dict_keys' object is not subscriptable
+[2024-07-18 18:35:45] Unhandled exception occurred:
+Traceback (most recent call last):
+  File "d:\VS_code\聚合OJ\config.py", line 49, in <module>
+    Config(root)
+  File "d:\VS_code\聚合OJ\config.py", line 11, in __init__
+    self.draw(self.file.read('\\data\\global.config.json'))
+  File "d:\VS_code\聚合OJ\config.py", line 20, in draw
+    Label(self.root,text=key[it]).grid(column=0,row=i)
+TypeError: 'dict_keys' object is not subscriptable
+[2024-07-18 18:48:18] Unhandled exception occurred:
+Traceback (most recent call last):
+  File "d:\VS_code\聚合OJ\config.py", line 49, in <module>
+    Config(root)
+  File "d:\VS_code\聚合OJ\config.py", line 11, in __init__
+    self.draw(self.file.read('\\data\\global.config.json'))
+  File "d:\VS_code\聚合OJ\config.py", line 20, in draw
+    Label(self.root,text=key[it]).grid(column=0,row=i)
+TypeError: 'dict_keys' object is not subscriptable
+[2024-07-18 18:50:09] Unhandled exception occurred:
+Traceback (most recent call last):
+  File "d:\VS_code\聚合OJ\config.py", line 49, in <module>
+    Config(root)
+  File "d:\VS_code\聚合OJ\config.py", line 11, in __init__
+    self.draw(self.file.read('\\data\\global.config.json'))
+  File "d:\VS_code\聚合OJ\config.py", line 20, in draw
+    Label(self.root,text=key[it]).grid(column=0,row=i)
+TypeError: 'dict_keys' object is not subscriptable
+[2024-07-18 18:51:33] Unhandled exception occurred:
+Traceback (most recent call last):
+  File "d:\VS_code\聚合OJ\config.py", line 49, in <module>
+    Config(root)
+  File "d:\VS_code\聚合OJ\config.py", line 11, in __init__
+    self.draw(self.file.read('\\data\\global.config.json'))
+  File "d:\VS_code\聚合OJ\config.py", line 20, in draw
+    Label(self.root,text=key[it]).grid(column=0,row=i)
+TypeError: 'dict_keys' object is not subscriptable
+[2024-07-18 18:52:31] Unhandled exception occurred:
+Traceback (most recent call last):
+  File "d:\VS_code\聚合OJ\config.py", line 49, in <module>
+    Config(root)
+  File "d:\VS_code\聚合OJ\config.py", line 11, in __init__
+    self.draw(self.file.read('\\data\\global.config.json'))
+  File "d:\VS_code\聚合OJ\config.py", line 20, in draw
+    Label(self.root,text=key[it]).grid(column=0,row=i)
+TypeError: 'dict_keys' object is not subscriptable
+[2024-07-18 18:52:55] Unhandled exception occurred:
+Traceback (most recent call last):
+  File "d:\VS_code\聚合OJ\config.py", line 49, in <module>
+    Config(root)
+  File "d:\VS_code\聚合OJ\config.py", line 11, in __init__
+    self.draw(self.file.read('\\data\\global.config.json'))
+  File "d:\VS_code\聚合OJ\config.py", line 20, in draw
+    Label(self.root,text=key[it]).grid(column=0,row=i)
+TypeError: 'dict_keys' object is not subscriptable
+[2024-07-18 18:53:44] Unhandled exception occurred:
+Traceback (most recent call last):
+  File "d:\VS_code\聚合OJ\config.py", line 48, in <module>
+    Config(root)
+  File "d:\VS_code\聚合OJ\config.py", line 11, in __init__
+    self.draw(self.file.read('\\data\\global.config.json'))
+  File "d:\VS_code\聚合OJ\config.py", line 22, in draw
+    tmp[i]=StringVar()
+IndexError: list assignment index out of range
+[2024-07-18 19:23:09] Unhandled exception occurred:
+Traceback (most recent call last):
+  File "d:\VS_code\聚合OJ\config.py", line 48, in <module>
+    Config(root)
+  File "d:\VS_code\聚合OJ\config.py", line 11, in __init__
+    self.draw(self.file.read('\\data\\global.config.json'))
+  File "d:\VS_code\聚合OJ\config.py", line 33, in draw
+    ttk.Button(frame,text='选择文件',command=lambda:self.open_file(list(item[self.iits][1].items())),iits=it).grid(column=1,row=i,sticky='w')
+  File "D:\其他软件\python\lib\tkinter\ttk.py", line 607, in __init__
+    Widget.__init__(self, master, "ttk::button", kw)
+  File "D:\其他软件\python\lib\tkinter\ttk.py", line 552, in __init__
+    tkinter.Widget.__init__(self, master, widgetname, kw=kw)
+  File "D:\其他软件\python\lib\tkinter\__init__.py", line 2577, in __init__
+    self.tk.call(
+_tkinter.TclError: unknown option "-iits"
+[2024-07-18 20:06:42] Unhandled exception occurred:
+Traceback (most recent call last):
+  File "d:\VS_code\聚合OJ\config.py", line 48, in <module>
+    Config(root)
+  File "d:\VS_code\聚合OJ\config.py", line 11, in __init__
+    self.draw(self.file.read('\\data\\global.config.json'))
+  File "d:\VS_code\聚合OJ\config.py", line 33, in draw
+    ttk.Button(frame,text='选择文件',command=lambda:self.open_file(list(item[self.iits][1].items())),iits=it).grid(column=1,row=i,sticky='w')
+  File "D:\其他软件\python\lib\tkinter\ttk.py", line 607, in __init__
+    Widget.__init__(self, master, "ttk::button", kw)
+  File "D:\其他软件\python\lib\tkinter\ttk.py", line 552, in __init__
+    tkinter.Widget.__init__(self, master, widgetname, kw=kw)
+  File "D:\其他软件\python\lib\tkinter\__init__.py", line 2577, in __init__
+    self.tk.call(
+_tkinter.TclError: unknown option "-iits"
+[2024-07-20 16:47:15] Unhandled exception occurred:
+Traceback (most recent call last):
+  File "d:\VS_code\聚合OJ\main.py", line 53, in <module>
+    luogu_parse()
+  File "d:\VS_code\聚合OJ\main.py", line 51, in luogu_parse
+    print(req,req.cookies)
+AttributeError: 'str' object has no attribute 'cookies'
+[2024-07-20 16:48:33] Unhandled exception occurred:
+Traceback (most recent call last):
+  File "d:\VS_code\聚合OJ\main.py", line 53, in <module>
+    luogu_parse()
+  File "d:\VS_code\聚合OJ\main.py", line 51, in luogu_parse
+    print(req,req.cookies)
+AttributeError: 'str' object has no attribute 'cookies'
+[2024-07-20 16:49:10] Unhandled exception occurred:
+Traceback (most recent call last):
+  File "d:\VS_code\聚合OJ\main.py", line 55, in <module>
+    raise
+RuntimeError: No active exception to reraise
+[2024-07-20 16:50:06] Unhandled exception occurred:
+Traceback (most recent call last):
+  File "d:\VS_code\聚合OJ\main.py", line 57, in <module>
+    raise
+RuntimeError: No active exception to reraise
+[2024-07-20 16:53:23] Unhandled exception occurred:
+Traceback (most recent call last):
+  File "d:\VS_code\聚合OJ\main.py", line 62, in <module>
+    raise
+RuntimeError: No active exception to reraise
+[2024-07-20 16:53:32] Unhandled exception occurred:
+Traceback (most recent call last):
+  File "d:\VS_code\聚合OJ\main.py", line 60, in <module>
+    parse()
+  File "d:\VS_code\聚合OJ\main.py", line 58, in parse
+    print(json.loads(quote(ans)))
+  File "D:\其他软件\python\lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "D:\其他软件\python\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "D:\其他软件\python\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+[2024-07-20 16:56:28] Unhandled exception occurred:
+Traceback (most recent call last):
+  File "d:\VS_code\聚合OJ\main.py", line 62, in <module>
+    raise
+RuntimeError: No active exception to reraise
+[2024-07-20 16:58:14] Unhandled exception occurred:
+Traceback (most recent call last):
+  File "d:\VS_code\聚合OJ\main.py", line 62, in <module>
+    raise
+RuntimeError: No active exception to reraise
+[2024-07-20 17:06:21] Unhandled exception occurred:
+Traceback (most recent call last):
+  File "d:\VS_code\聚合OJ\main.py", line 61, in <module>
+    raise
+RuntimeError: No active exception to reraise
+[2024-07-20 17:06:39] Unhandled exception occurred:
+Traceback (most recent call last):
+  File "d:\VS_code\聚合OJ\main.py", line 62, in <module>
+    raise
+RuntimeError: No active exception to reraise
+[2024-07-20 17:07:31] Unhandled exception occurred:
+Traceback (most recent call last):
+  File "d:\VS_code\聚合OJ\main.py", line 62, in <module>
+    raise
+RuntimeError: No active exception to reraise
+[2024-07-20 18:06:54] Unhandled exception occurred:
+Traceback (most recent call last):
+  File "d:\VS_code\聚合OJ\main.py", line 63, in <module>
+    raise
+RuntimeError: No active exception to reraise
+[2024-07-20 18:18:40] Unhandled exception occurred:
+Traceback (most recent call last):
+  File "d:\VS_code\聚合OJ\main.py", line 70, in <module>
+    raise
+RuntimeError: No active exception to reraise
+[2024-07-20 19:11:06] Unhandled exception occurred:
+Traceback (most recent call last):
+  File "d:\VS_code\聚合OJ\main.py", line 35, in <module>
+    @app.route()
+  File "D:\其他软件\python\lib\site-packages\flask\sansio\scaffold.py", line 47, in wrapper_func
+    return f(self, *args, **kwargs)
+TypeError: route() missing 1 required positional argument: 'rule'
+[2024-07-20 20:57:19] Unhandled exception occurred:
+Traceback (most recent call last):
+  File "d:\VS_code\聚合OJ\main.py", line 85, in <module>
+    raise
+RuntimeError: No active exception to reraise
+[2024-07-22 08:42:30] Unhandled exception occurred:
+Traceback (most recent call last):
+  File "d:\VS_code\聚合OJ\main.py", line 91, in <module>
+    wait()
+  File "d:\VS_code\聚合OJ\main.py", line 88, in wait
+    FileText.save('\\data\\lastupd.file',lastupd)
+  File "d:\VS_code\聚合OJ\file.py", line 20, in save
+    f.write(file)
+TypeError: write() argument must be str, not float
+[2024-07-22 09:47:49] Unhandled exception occurred:
+Traceback (most recent call last):
+  File "d:\VS_code\聚合OJ\main.py", line 94, in <module>
+    raise
+RuntimeError: No active exception to reraise
+[2024-07-22 09:48:31] Unhandled exception occurred:
+Traceback (most recent call last):
+  File "d:\VS_code\聚合OJ\main.py", line 94, in <module>
+    raise
+RuntimeError: No active exception to reraise
+[2024-07-22 18:44:52] Unhandled exception occurred:
+Traceback (most recent call last):
+  File "d:\VS_code\聚合OJ\main.py", line 49, in <module>
+    def record():
+  File "D:\其他软件\python\lib\site-packages\flask\sansio\scaffold.py", line 362, in decorator
+    self.add_url_rule(rule, endpoint, f, **options)
+  File "D:\其他软件\python\lib\site-packages\flask\sansio\scaffold.py", line 47, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "D:\其他软件\python\lib\site-packages\flask\sansio\app.py", line 657, in add_url_rule
+    raise AssertionError(
+AssertionError: View function mapping is overwriting an existing endpoint function: record

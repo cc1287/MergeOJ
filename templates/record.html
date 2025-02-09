@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>提交记录</title>
+    <link href="/layui/css/layui.css" rel="stylesheet">
+    <script src="/layui/layui.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @font-face {
+            font-family: CustomFont;
+            src: url("/layui/font/JetBrainsMono-Regular.ttf");
+        }
+
+        * {
+            font-family: CustomFont;
+            unicode-range: U+0020-U+007E;
+            /* ASCII characters and common punctuation */
+        }
+
+        .OJ-card {
+            background-color: rgb(230, 230, 230);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="layui-nav layui-bg-gray" style="z-index: 10;" id="nav">
+        <li class="layui-nav-item" id="homePage">
+            <a href="/index">首页</a>
+        </li>
+        <li class="layui-nav-item layui-this" id="record">
+            <a href="/record">评测信息</a>
+        </li>
+        <!-- <li class="layui-nav-item">
+            <a href="javascript:void(0);">功能</a>
+            <dl class="layui-nav-child">
+                <dd><a lay-on="get-start" id="addOJ">添加OJ</a></dd>
+            </dl>
+        </li> -->
+        <li class="layui-nav-item">
+            <a lay-on="get-start" id="addOJ">添加OJ</a>
+        </li>
+    </ul>
+
+    <div style="padding-left: 16px; padding-right: 16px;" id="main">
+        <div class="layui-tab" lay-filter="test-hash">
+            <ul class="layui-tab-title">
+                <li lay-id="luogu" id="t-luogu">Luogu</li>
+                <li lay-id="QOJ" id="t-QOJ">QOJ</li>
+            </ul>
+            <div class="layui-tab-content">
+                <div class="layui-tab-item" id="luogu"></div>
+                <div class="layui-tab-item" id="QOJ"></div>
+            </div>
+        </div>
+    </div>
+
+    <table class="layui-table" style="margin-top: -10px;" id="record-all"></table>
+
+    <script>
+        function get(id) {
+            return document.getElementById(id);
+        }
+        if ('{{hide}}' == 'no') {
+            get('{{oj_type}}').appendChild(get('record-all'));
+            get('t-{{oj_type}}').classList.add('layui-this');
+            get('{{oj_type}}').classList.add('layui-show');
+        } else {
+            get('main').remove();
+            get('nav').remove();
+        }
+        get('record-all').style.height = '{{height}}';
+        layui.use(function () {
+            var element = layui.element;
+            var layer = layui.layer;
+            var util = layui.util;
+            var form = layui.form;
+            var $ = layui.$;
+            // 事件
+            util.on('lay-on', {
+                'get-start': function () {
+                    layer.msg('请前往首页添加OJ', {
+                        end: function () {
+                            window.location.reload();
+                        }
+                    })
+                },
+            });
+            // 多窗口模式 - esc 键
+            $(document).on('keyup', function (e) {
+                if (e.keyCode === 27) {
+                    layer.close(layer.escIndex ? layer.escIndex[0] : 0);
+                }
+            });
+
+            element.on('tab(test-hash)', function (obj) {
+                if (obj.id == '{{oj_type}}') {
+                    return;
+                }
+                try {
+                    let fw = window.location.href.split('?');
+                    let fj = fw[1].split('#');
+                    window.location.href = fw[0] + '?oj=' + obj.id + '#' + fj[1];
+                } catch {
+                    window.location.href = window.location.href.split('?')[0] + '?oj=QOJ';
+                }
+                var forceClose;
+                var loadIndex = layer.load(1, {
+                    shade: 0.8,
+                    success: function () {
+                        //     var xhr = new XMLHttpRequest();
+                        //     xhr.open('GET', '/checkOJ?oj_type=' + e.data, true);
+                        //     xhr.onreadystatechange = function () {
+                        //         if (xhr.readyState == 4 && xhr.status == 200) {
+                        //             if(xhr.responseText=='ok'){
+                        //                 layer.close(loadIndex);
+                        //                 clearTimeout(forceClose);
+                        //                 layer.msg('验证成功', {icon: 1}, function(){
+                        //                     window.location.reload()
+                        //                 });
+                        //             }else{
+                        //                 layer.close(loadIndex);
+                        //                 clearTimeout(forceClose);
+                        //                 layer.msg('验证失败', {icon: 2});
+                        //             }
+                        //         }
+                        //     };
+                        // xhr.send();
+                        forceClose = setTimeout(function () {
+                            layer.close(loadIndex);
+                            layer.msg('请求失败，请检查网络连接或刷新页面', { icon: 2 });
+                        }, 10000);
+                    }
+                });
+            });
+        });
+        layui.use(['table'], function () {
+            var table = layui.table;
+            var form = layui.form;
+
+            // 创建渲染实例
+            table.render({
+                elem: '#record-all',
+                url: '/getLuogu', // 此处为静态模拟数据，实际使用时需换成真实接口
+                page: true,
+                height: '580px',
+                limit: 20,
+                limits: [20],
+                scrollPos: 'fixed',
+                page: {
+                    curr: location.hash.replace('#!page=', ''),
+                    hash: 'page'
+                },
+                cols: [[
+                    {
+                        field: 'status',
+                        title: '状态',
+                        width: 140,
+                        // align: 'center',
+                        templet: function (d) {
+                            if (d.status == 12) {
+                                return "<a href='javascript:newWindow(" + d.id + ")'><span class='layui-badge' style='background-color: rgb(82,196,26);'>Accepted</span></a>";
+                            } else if (d.status == 14) {
+                                return "<a href='javascript:newWindow(" + d.id + ")'><span class='layui-badge' style='background-color: rgb(231,76,60);'>Unaccepted</span></a>";
+                            } else if (d.status == 2) {
+                                return "<a href='javascript:newWindow(" + d.id + ")'><span class='layui-badge' style='background-color: rgb(250,219,20);'>Compile Error</span></a>";
+                            } else {
+                                return "<a href='javascript:newWindow(" + d.id + ")'><span class='layui-badge layui-bg-gray'>Unknown</span></a>"
+                            }
+                        }
+                    },
+                    {
+                        field: 'score',
+                        title: '分数',
+                        width: 80,
+                        templet: function (d) {
+                            if (d.status == 12) {
+                                return "<span style='color: rgb(82,196,26); font-weight: bold;'>" + d.problem.fullScore + "</span>";
+                            } else if (d.status == 14) {
+                                return "<span style='color: rgb(231,76,60); font-weight: bold;'>" + d.score + "</span>";
+                            } else if (d.status == 2) {
+                                return "<span style='color: rgb(250,219,20); font-weight: bold;'>" + d.score + "</span>";
+                            } else {
+                                return "<span style='font-weight: bold;'>" + d.score + "</span>";
+                            }
+                        }
+                    },
+                    {
+                        field: 'problem',
+                        title: '题目',
+                        templet: function (d) {
+                            let res = "";
+                            let hard = ['#bfbfbf', '#fe4c61', '#f39c11', '#ffc116', '#52c41a', '#3498db', '#9d3dcf', '#0e1d69'];
+                            res += "<a target='_blank' href='" + d.oj.replace('pid', d.problem.pid) + (d.contest != null ? "?contestId=" + d.contest.id : "") + "'><span style='font-weight: bold; color: " + hard[d.problem.difficulty] + ";'>" + d.problem.pid + "</span>&nbsp;<span style='color: #3498db;'>" + d.problem.title + "</span></a>";
+                            return res;
+                        }
+                    },
+                    {
+                        field: 'time',
+                        title: '用时',
+                        width: 100,
+                        templet: function (d) {
+                            return d.time + "ms";
+                        }
+                    },
+                    {
+                        field: 'memory',
+                        title: '内存',
+                        width: 110,
+                        templet: function (d) {
+                            if (d.memory >= 1024) {
+                                return (d.memory / 1024.0).toFixed(2) + "MB";
+                            }
+                            return (d.memory * 1.0).toFixed(2) + "KB";
+                        }
+                    },
+                    {
+                        field: 'sourceCodeLength',
+                        title: '代码长度',
+                        width: 90,
+                        templet: function (d) {
+                            if (d.sourceCodeLength >= 1024) {
+                                return (d.sourceCodeLength / 1024.0).toFixed(2) + "KB";
+                            }
+                            return d.sourceCodeLength + "B";
+                        }
+                    }
+                ]]
+            });
+            // setTimeout(function () {
+            setInterval(function () {
+                table.reloadData('record-all', {});
+            }, 10000);
+            // }, 1000);
+        });
+        function newWindow(id) {
+            var that = this;
+            // 多窗口模式 + 层叠置顶 + Esc 关闭
+            layer.open({
+                type: 2,
+                title: id,
+                id: id,
+                shadeClose: false,
+                shade: 0,
+                maxmin: true,
+                area: ['600px', '369px'],
+                content: '/luoguProblem?id=' + id, // iframe 的 url
+                zIndex: layer.zIndex, // 重点 1 --- 初始设置当前最高层叠顺序，
+                success: function (layero, index) {
+                    layer.setTop(layero); // 重点 2 --- 保持选中窗口置顶
+
+                    // 记录索引，以便按 esc 键关闭。事件见代码最末尾处。
+                    layer.escIndex = layer.escIndex || [];
+                    layer.escIndex.unshift(index);
+                    // 选中当前层时，将当前层索引放置在首位
+                    layero.on('mousedown', function () {
+                        var _index = layer.escIndex.indexOf(index);
+                        if (_index !== -1) {
+                            layer.escIndex.splice(_index, 1); //删除原有索引
+                        }
+                        layer.escIndex.unshift(index); //将索引插入到数组首位
+                    });
+                },
+                end: function () {
+                    //更新索引
+                    if (typeof layer.escIndex === 'object') {
+                        layer.escIndex.splice(0, 1);
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
