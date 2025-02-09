@@ -1,0 +1,675 @@
+{
+    "code": 0,
+    "data": [
+        {
+            "time": 6,
+            "memory": 680,
+            "problem": {
+                "pid": "T480721",
+                "title": "rules",
+                "difficulty": 0,
+                "fullScore": 200,
+                "type": "T"
+            },
+            "contest": {
+                "id": 182049,
+                "name": "\u3010LGR-194-Div.4\u3011\u6d1b\u8c37\u5165\u95e8\u8d5b #25",
+                "startTime": 1721386800,
+                "endTime": 1721394000
+            },
+            "sourceCodeLength": 96,
+            "submitTime": 1721389184,
+            "language": 28,
+            "user": {
+                "uid": 764193,
+                "name": "cc1287",
+                "avatar": "https://cdn.luogu.com.cn/upload/usericon/764193.png",
+                "slogan": "",
+                "badge": null,
+                "isAdmin": false,
+                "isBanned": false,
+                "color": "Green",
+                "ccfLevel": 4,
+                "background": ""
+            },
+            "id": 167217903,
+            "status": 14,
+            "enableO2": true,
+            "score": 433
+        },
+        {
+            "time": 7,
+            "memory": 680,
+            "problem": {
+                "pid": "T480721",
+                "title": "rules",
+                "difficulty": 0,
+                "fullScore": 200,
+                "type": "T"
+            },
+            "contest": {
+                "id": 182049,
+                "name": "\u3010LGR-194-Div.4\u3011\u6d1b\u8c37\u5165\u95e8\u8d5b #25",
+                "startTime": 1721386800,
+                "endTime": 1721394000
+            },
+            "sourceCodeLength": 97,
+            "submitTime": 1721389124,
+            "language": 28,
+            "user": {
+                "uid": 764193,
+                "name": "cc1287",
+                "avatar": "https://cdn.luogu.com.cn/upload/usericon/764193.png",
+                "slogan": "",
+                "badge": null,
+                "isAdmin": false,
+                "isBanned": false,
+                "color": "Green",
+                "ccfLevel": 4,
+                "background": ""
+            },
+            "id": 167217201,
+            "status": 14,
+            "enableO2": true,
+            "score": 433
+        },
+        {
+            "time": 39,
+            "memory": 724,
+            "problem": {
+                "pid": "T480723",
+                "title": "respect",
+                "difficulty": 0,
+                "fullScore": 200,
+                "type": "T"
+            },
+            "contest": {
+                "id": 182049,
+                "name": "\u3010LGR-194-Div.4\u3011\u6d1b\u8c37\u5165\u95e8\u8d5b #25",
+                "startTime": 1721386800,
+                "endTime": 1721394000
+            },
+            "sourceCodeLength": 629,
+            "submitTime": 1721388970,
+            "language": 28,
+            "user": {
+                "uid": 764193,
+                "name": "cc1287",
+                "avatar": "https://cdn.luogu.com.cn/upload/usericon/764193.png",
+                "slogan": "",
+                "badge": null,
+                "isAdmin": false,
+                "isBanned": false,
+                "color": "Green",
+                "ccfLevel": 4,
+                "background": ""
+            },
+            "id": 167215512,
+            "status": 14,
+            "enableO2": true,
+            "score": 0
+        },
+        {
+            "time": 89,
+            "memory": 3544,
+            "problem": {
+                "pid": "T480718",
+                "title": "eating",
+                "difficulty": 0,
+                "fullScore": 200,
+                "type": "T"
+            },
+            "contest": {
+                "id": 182049,
+                "name": "\u3010LGR-194-Div.4\u3011\u6d1b\u8c37\u5165\u95e8\u8d5b #25",
+                "startTime": 1721386800,
+                "endTime": 1721394000
+            },
+            "sourceCodeLength": 583,
+            "submitTime": 1721388143,
+            "language": 28,
+            "user": {
+                "uid": 764193,
+                "name": "cc1287",
+                "avatar": "https://cdn.luogu.com.cn/upload/usericon/764193.png",
+                "slogan": "",
+                "badge": null,
+                "isAdmin": false,
+                "isBanned": false,
+                "color": "Green",
+                "ccfLevel": 4,
+                "background": ""
+            },
+            "id": 167206433,
+            "status": 12,
+            "enableO2": true,
+            "score": 681
+        },
+        {
+            "time": 65,
+            "memory": 1908,
+            "problem": {
+                "pid": "T480718",
+                "title": "eating",
+                "difficulty": 0,
+                "fullScore": 200,
+                "type": "T"
+            },
+            "contest": {
+                "id": 182049,
+                "name": "\u3010LGR-194-Div.4\u3011\u6d1b\u8c37\u5165\u95e8\u8d5b #25",
+                "startTime": 1721386800,
+                "endTime": 1721394000
+            },
+            "sourceCodeLength": 573,
+            "submitTime": 1721388066,
+            "language": 28,
+            "user": {
+                "uid": 764193,
+                "name": "cc1287",
+                "avatar": "https://cdn.luogu.com.cn/upload/usericon/764193.png",
+                "slogan": "",
+                "badge": null,
+                "isAdmin": false,
+                "isBanned": false,
+                "color": "Green",
+                "ccfLevel": 4,
+                "background": ""
+            },
+            "id": 167205539,
+            "status": 14,
+            "enableO2": true,
+            "score": 278
+        },
+        {
+            "time": 6,
+            "memory": 684,
+            "problem": {
+                "pid": "T480717",
+                "title": "value",
+                "difficulty": 0,
+                "fullScore": 200,
+                "type": "T"
+            },
+            "contest": {
+                "id": 182049,
+                "name": "\u3010LGR-194-Div.4\u3011\u6d1b\u8c37\u5165\u95e8\u8d5b #25",
+                "startTime": 1721386800,
+                "endTime": 1721394000
+            },
+            "sourceCodeLength": 470,
+            "submitTime": 1721387550,
+            "language": 28,
+            "user": {
+                "uid": 764193,
+                "name": "cc1287",
+                "avatar": "https://cdn.luogu.com.cn/upload/usericon/764193.png",
+                "slogan": "",
+                "badge": null,
+                "isAdmin": false,
+                "isBanned": false,
+                "color": "Green",
+                "ccfLevel": 4,
+                "background": ""
+            },
+            "id": 167198877,
+            "status": 14,
+            "enableO2": true,
+            "score": 469
+        },
+        {
+            "time": 6,
+            "memory": 680,
+            "problem": {
+                "pid": "T480717",
+                "title": "value",
+                "difficulty": 0,
+                "fullScore": 200,
+                "type": "T"
+            },
+            "contest": {
+                "id": 182049,
+                "name": "\u3010LGR-194-Div.4\u3011\u6d1b\u8c37\u5165\u95e8\u8d5b #25",
+                "startTime": 1721386800,
+                "endTime": 1721394000
+            },
+            "sourceCodeLength": 394,
+            "submitTime": 1721387382,
+            "language": 28,
+            "user": {
+                "uid": 764193,
+                "name": "cc1287",
+                "avatar": "https://cdn.luogu.com.cn/upload/usericon/764193.png",
+                "slogan": "",
+                "badge": null,
+                "isAdmin": false,
+                "isBanned": false,
+                "color": "Green",
+                "ccfLevel": 4,
+                "background": ""
+            },
+            "id": 167196610,
+            "status": 14,
+            "enableO2": true,
+            "score": 363
+        },
+        {
+            "time": 7,
+            "memory": 680,
+            "problem": {
+                "pid": "T480717",
+                "title": "value",
+                "difficulty": 0,
+                "fullScore": 200,
+                "type": "T"
+            },
+            "contest": {
+                "id": 182049,
+                "name": "\u3010LGR-194-Div.4\u3011\u6d1b\u8c37\u5165\u95e8\u8d5b #25",
+                "startTime": 1721386800,
+                "endTime": 1721394000
+            },
+            "sourceCodeLength": 358,
+            "submitTime": 1721387313,
+            "language": 28,
+            "user": {
+                "uid": 764193,
+                "name": "cc1287",
+                "avatar": "https://cdn.luogu.com.cn/upload/usericon/764193.png",
+                "slogan": "",
+                "badge": null,
+                "isAdmin": false,
+                "isBanned": false,
+                "color": "Green",
+                "ccfLevel": 4,
+                "background": ""
+            },
+            "id": 167195640,
+            "status": 14,
+            "enableO2": true,
+            "score": 372
+        },
+        {
+            "time": 6,
+            "memory": 680,
+            "problem": {
+                "pid": "T480715",
+                "title": "true",
+                "difficulty": 0,
+                "fullScore": 200,
+                "type": "T"
+            },
+            "contest": {
+                "id": 182049,
+                "name": "\u3010LGR-194-Div.4\u3011\u6d1b\u8c37\u5165\u95e8\u8d5b #25",
+                "startTime": 1721386800,
+                "endTime": 1721394000
+            },
+            "sourceCodeLength": 379,
+            "submitTime": 1721387180,
+            "language": 28,
+            "user": {
+                "uid": 764193,
+                "name": "cc1287",
+                "avatar": "https://cdn.luogu.com.cn/upload/usericon/764193.png",
+                "slogan": "",
+                "badge": null,
+                "isAdmin": false,
+                "isBanned": false,
+                "color": "Green",
+                "ccfLevel": 4,
+                "background": ""
+            },
+            "id": 167193783,
+            "status": 12,
+            "enableO2": true,
+            "score": 453
+        },
+        {
+            "time": 6,
+            "memory": 612,
+            "problem": {
+                "pid": "T480715",
+                "title": "true",
+                "difficulty": 0,
+                "fullScore": 200,
+                "type": "T"
+            },
+            "contest": {
+                "id": 182049,
+                "name": "\u3010LGR-194-Div.4\u3011\u6d1b\u8c37\u5165\u95e8\u8d5b #25",
+                "startTime": 1721386800,
+                "endTime": 1721394000
+            },
+            "sourceCodeLength": 378,
+            "submitTime": 1721387027,
+            "language": 28,
+            "user": {
+                "uid": 764193,
+                "name": "cc1287",
+                "avatar": "https://cdn.luogu.com.cn/upload/usericon/764193.png",
+                "slogan": "",
+                "badge": null,
+                "isAdmin": false,
+                "isBanned": false,
+                "color": "Green",
+                "ccfLevel": 4,
+                "background": ""
+            },
+            "id": 167191432,
+            "status": 14,
+            "enableO2": true,
+            "score": 0
+        },
+        {
+            "time": 0,
+            "memory": 0,
+            "problem": {
+                "pid": "P1115",
+                "title": "\u6700\u5927\u5b50\u6bb5\u548c",
+                "difficulty": 2,
+                "fullScore": 100,
+                "type": "P"
+            },
+            "contest": null,
+            "sourceCodeLength": 598,
+            "submitTime": 1720838144,
+            "language": 28,
+            "user": {
+                "uid": 764193,
+                "name": "cc1287",
+                "avatar": "https://cdn.luogu.com.cn/upload/usericon/764193.png",
+                "slogan": "",
+                "badge": null,
+                "isAdmin": false,
+                "isBanned": false,
+                "color": "Green",
+                "ccfLevel": 4,
+                "background": ""
+            },
+            "id": 165646500,
+            "status": 2,
+            "enableO2": false,
+            "score": null
+        },
+        {
+            "time": 38,
+            "memory": 596,
+            "problem": {
+                "pid": "P1190",
+                "title": "[NOIP2010 \u666e\u53ca\u7ec4] \u63a5\u6c34\u95ee\u9898",
+                "difficulty": 2,
+                "fullScore": 100,
+                "type": "P"
+            },
+            "contest": null,
+            "sourceCodeLength": 375,
+            "submitTime": 1710925889,
+            "language": 28,
+            "user": {
+                "uid": 764193,
+                "name": "cc1287",
+                "avatar": "https://cdn.luogu.com.cn/upload/usericon/764193.png",
+                "slogan": "",
+                "badge": null,
+                "isAdmin": false,
+                "isBanned": false,
+                "color": "Green",
+                "ccfLevel": 4,
+                "background": ""
+            },
+            "id": 151789693,
+            "status": 12,
+            "enableO2": true,
+            "score": 100
+        },
+        {
+            "time": 36,
+            "memory": 680,
+            "problem": {
+                "pid": "P1067",
+                "title": "[NOIP2009 \u666e\u53ca\u7ec4] \u591a\u9879\u5f0f\u8f93\u51fa",
+                "difficulty": 2,
+                "fullScore": 100,
+                "type": "P"
+            },
+            "contest": null,
+            "sourceCodeLength": 350,
+            "submitTime": 1710912632,
+            "language": 28,
+            "user": {
+                "uid": 764193,
+                "name": "cc1287",
+                "avatar": "https://cdn.luogu.com.cn/upload/usericon/764193.png",
+                "slogan": "",
+                "badge": null,
+                "isAdmin": false,
+                "isBanned": false,
+                "color": "Green",
+                "ccfLevel": 4,
+                "background": ""
+            },
+            "id": 151754452,
+            "status": 12,
+            "enableO2": true,
+            "score": 100
+        },
+        {
+            "time": 31,
+            "memory": 600,
+            "problem": {
+                "pid": "P1046",
+                "title": "[NOIP2005 \u666e\u53ca\u7ec4] \u9676\u9676\u6458\u82f9\u679c",
+                "difficulty": 1,
+                "fullScore": 100,
+                "type": "P"
+            },
+            "contest": null,
+            "sourceCodeLength": 412,
+            "submitTime": 1709031278,
+            "language": 28,
+            "user": {
+                "uid": 764193,
+                "name": "cc1287",
+                "avatar": "https://cdn.luogu.com.cn/upload/usericon/764193.png",
+                "slogan": "",
+                "badge": null,
+                "isAdmin": false,
+                "isBanned": false,
+                "color": "Green",
+                "ccfLevel": 4,
+                "background": ""
+            },
+            "id": 148537932,
+            "status": 12,
+            "enableO2": true,
+            "score": 100
+        },
+        {
+            "time": 252,
+            "memory": 4656,
+            "problem": {
+                "pid": "T404787",
+                "title": "\u79fb\u9664\u5143\u7d20",
+                "difficulty": 2,
+                "fullScore": 100,
+                "type": "T"
+            },
+            "contest": null,
+            "sourceCodeLength": 527,
+            "submitTime": 1701662478,
+            "language": 28,
+            "user": {
+                "uid": 764193,
+                "name": "cc1287",
+                "avatar": "https://cdn.luogu.com.cn/upload/usericon/764193.png",
+                "slogan": "",
+                "badge": null,
+                "isAdmin": false,
+                "isBanned": false,
+                "color": "Green",
+                "ccfLevel": 4,
+                "background": ""
+            },
+            "id": 138146999,
+            "status": 12,
+            "enableO2": true,
+            "score": 100
+        },
+        {
+            "time": 251,
+            "memory": 4676,
+            "problem": {
+                "pid": "T404787",
+                "title": "\u79fb\u9664\u5143\u7d20",
+                "difficulty": 2,
+                "fullScore": 100,
+                "type": "T"
+            },
+            "contest": null,
+            "sourceCodeLength": 527,
+            "submitTime": 1701661991,
+            "language": 28,
+            "user": {
+                "uid": 764193,
+                "name": "cc1287",
+                "avatar": "https://cdn.luogu.com.cn/upload/usericon/764193.png",
+                "slogan": "",
+                "badge": null,
+                "isAdmin": false,
+                "isBanned": false,
+                "color": "Green",
+                "ccfLevel": 4,
+                "background": ""
+            },
+            "id": 138146634,
+            "status": 12,
+            "enableO2": true,
+            "score": 100
+        },
+        {
+            "time": 250,
+            "memory": 4688,
+            "problem": {
+                "pid": "U387563",
+                "title": "\u79fb\u9664\u5143\u7d20",
+                "difficulty": 2,
+                "fullScore": 100,
+                "type": "U"
+            },
+            "contest": null,
+            "sourceCodeLength": 527,
+            "submitTime": 1701661649,
+            "language": 28,
+            "user": {
+                "uid": 764193,
+                "name": "cc1287",
+                "avatar": "https://cdn.luogu.com.cn/upload/usericon/764193.png",
+                "slogan": "",
+                "badge": null,
+                "isAdmin": false,
+                "isBanned": false,
+                "color": "Green",
+                "ccfLevel": 4,
+                "background": ""
+            },
+            "id": 138146367,
+            "status": 12,
+            "enableO2": true,
+            "score": 100
+        },
+        {
+            "time": 626,
+            "memory": 856,
+            "problem": {
+                "pid": "P7072",
+                "title": "[CSP-J2020] \u76f4\u64ad\u83b7\u5956",
+                "difficulty": 2,
+                "fullScore": 100,
+                "type": "P"
+            },
+            "contest": null,
+            "sourceCodeLength": 307,
+            "submitTime": 1696775128,
+            "language": 28,
+            "user": {
+                "uid": 764193,
+                "name": "cc1287",
+                "avatar": "https://cdn.luogu.com.cn/upload/usericon/764193.png",
+                "slogan": "",
+                "badge": null,
+                "isAdmin": false,
+                "isBanned": false,
+                "color": "Green",
+                "ccfLevel": 4,
+                "background": ""
+            },
+            "id": 128350534,
+            "status": 12,
+            "enableO2": false,
+            "score": 100
+        },
+        {
+            "time": 628,
+            "memory": 860,
+            "problem": {
+                "pid": "P7072",
+                "title": "[CSP-J2020] \u76f4\u64ad\u83b7\u5956",
+                "difficulty": 2,
+                "fullScore": 100,
+                "type": "P"
+            },
+            "contest": null,
+            "sourceCodeLength": 315,
+            "submitTime": 1696774653,
+            "language": 28,
+            "user": {
+                "uid": 764193,
+                "name": "cc1287",
+                "avatar": "https://cdn.luogu.com.cn/upload/usericon/764193.png",
+                "slogan": "",
+                "badge": null,
+                "isAdmin": false,
+                "isBanned": false,
+                "color": "Green",
+                "ccfLevel": 4,
+                "background": ""
+            },
+            "id": 128348966,
+            "status": 12,
+            "enableO2": false,
+            "score": 100
+        },
+        {
+            "time": 60,
+            "memory": 804,
+            "problem": {
+                "pid": "P7071",
+                "title": "[CSP-J2020] \u4f18\u79c0\u7684\u62c6\u5206",
+                "difficulty": 1,
+                "fullScore": 100,
+                "type": "P"
+            },
+            "contest": null,
+            "sourceCodeLength": 410,
+            "submitTime": 1696768142,
+            "language": 28,
+            "user": {
+                "uid": 764193,
+                "name": "cc1287",
+                "avatar": "https://cdn.luogu.com.cn/upload/usericon/764193.png",
+                "slogan": "",
+                "badge": null,
+                "isAdmin": false,
+                "isBanned": false,
+                "color": "Green",
+                "ccfLevel": 4,
+                "background": ""
+            },
+            "id": 128319720,
+            "status": 12,
+            "enableO2": false,
+            "score": 100
+        }
+    ]
+}
